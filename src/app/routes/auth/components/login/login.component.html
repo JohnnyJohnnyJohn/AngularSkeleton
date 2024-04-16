@@ -1,0 +1,47 @@
+<main fxLayout fxFlex="1 1 auto" fxLayoutAlign="center center">
+
+  <mat-card class="mat-elevation-z6">
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+      <mat-card-content fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+        <mat-form-field appearance="outline" fxFlexFill>
+          <mat-label>Email</mat-label>
+          <input matInput
+                 type="text"
+                 formControlName="email"
+                 autocomplete="username"
+                 required>
+          @if (loginForm.controls.email.invalid) {
+            <mat-error>Veuillez entrer votre email</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlexFill>
+          <mat-label>Mot de passe</mat-label>
+          <input matInput
+                 type="{{hidePassword ? 'password' : 'text'}}"
+                 formControlName="password"
+                 autocomplete="current-password"
+                 required>
+          <button mat-icon-button
+                  type="button"
+                  matSuffix
+                  color="accent"
+                  (click)="hidePassword = !hidePassword"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          @if (loginForm.controls.password.invalid) {
+            <mat-error>Veuillez entrer votre mot de passe</mat-error>
+          }
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+        <button mat-fab extended type="submit">
+          <mat-icon>login</mat-icon>
+          SE CONNECTER
+        </button>
+        <a mat-button routerLink="/auth/register">Vous n'avez pas de compte ? Inscrivez-vous</a>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</main>

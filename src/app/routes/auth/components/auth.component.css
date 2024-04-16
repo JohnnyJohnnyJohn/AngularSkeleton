@@ -1,0 +1,25 @@
+main{
+  height: 100vh;
+}
+
+mat-card{
+  width: fit-content;
+  min-width: 450px;
+  height: fit-content;
+  padding: 20px;
+}
+
+mat-card-actions{
+  padding: 10px 0 0 0;
+}
+
+mat-card-actions button{
+  font-size: 1rem;
+  padding: 20px;
+}
+
+a{
+  font-weight: lighter;
+  border-radius: 50px;
+  padding: 0 20px;
+}
