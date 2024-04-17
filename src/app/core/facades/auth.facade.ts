@@ -22,16 +22,16 @@ export class AuthFacade {
     return this.authService.login(authDto).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err.error.statusCode === 400) {
-          this.snackBarService.openSnackbar("Email et/ou mot de passe incorrect(s)", 'error-snackbar');
+          this.snackBarService.openErrorSnackBar("Email et/ou mot de passe incorrect(s)");
         } else {
-          this.snackBarService.openSnackbar("Échec lors de la connexion! Veuillez réessayer.", 'error-snackbar');
+          this.snackBarService.openErrorSnackBar("Échec lors de la connexion! Veuillez réessayer.");
         }
         return EMPTY
       }),
       tap({
         next: (response: AuthResponseDto) => {
           updateAuthState(response);
-          this.snackBarService.openSnackbar("Connexion réussie!", 'success-snackbar');
+          this.snackBarService.openSuccessSnackBar("Connexion réussie!");
           this.router.navigate(['']);
         }
       })
@@ -42,16 +42,16 @@ export class AuthFacade {
     return this.authService.register(user).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err.error.statusCode === 400) {
-          this.snackBarService.openSnackbar("Cet email est déjà utilisé", 'error-snackbar');
+          this.snackBarService.openErrorSnackBar("Cet email est déjà utilisé");
         } else {
-          this.snackBarService.openSnackbar("Échec lors de l\'inscription! Veuillez réessayer.", 'error-snackbar');
+          this.snackBarService.openErrorSnackBar("Échec lors de l\'inscription! Veuillez réessayer.");
         }
         return EMPTY
       }),
       tap({
         next: (response: AuthResponseDto) => {
           updateAuthState(response);
-          this.snackBarService.openSnackbar("Inscription réussie!", 'success-snackbar');
+          this.snackBarService.openSuccessSnackBar("Inscription réussie!");
           this.router.navigate(['']);
         }
       })

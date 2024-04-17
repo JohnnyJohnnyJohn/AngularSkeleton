@@ -41,7 +41,7 @@ export class LoginComponent {
         this.loginForm.value as AuthDto
       ).subscribe();
     } else {
-      this.snackbarService.openSnackbar('Veuillez remplir tous les champs', 'error-snackbar')
+      this.snackbarService.openErrorSnackBar('Veuillez remplir tous les champs')
     }
   }
 }

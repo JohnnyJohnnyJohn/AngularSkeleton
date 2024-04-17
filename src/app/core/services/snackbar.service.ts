@@ -7,16 +7,33 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class SnackbarService {
   constructor(private snackBar: MatSnackBar) {}
 
-  openSnackbar(
+  duration = 3000;
+
+  openSuccessSnackBar(
     message: string,
-    panelClass: string = '',
-    action: string | undefined = undefined,
-    duration: number = 3000
+    action?: string
   ) {
-    console.log('panelClass', panelClass);
-    this.snackBar.open(message, action, {
-      duration: duration,
-      panelClass: panelClass
-    });
+    this.snackBar.open(
+      message,
+      action,
+      {
+        duration: this.duration,
+        panelClass: 'success-snackbar'
+      }
+    );
+  }
+
+  openErrorSnackBar(
+    message: string,
+    action?: string,
+  ) {
+    this.snackBar.open(
+      message,
+      action,
+      {
+        duration: this.duration,
+        panelClass: 'error-snackbar'
+      }
+    );
   }
 }

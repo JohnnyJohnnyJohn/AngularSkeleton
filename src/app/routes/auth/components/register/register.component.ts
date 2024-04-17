@@ -48,7 +48,19 @@ export class RegisterComponent {
         this.registerForm.value as RegisterDto
       ).subscribe();
     } else {
-      this.snackbarService.openSnackbar('Veuillez remplir tous les champs', 'error-snackbar')
+      let errorMessage;
+
+      if(this.registerForm.controls.email.hasError('email')) {
+        errorMessage = 'Veuillez entrer un email valide'
+      } else if(this.registerForm.controls.password.hasError('minlength')) {
+        errorMessage = 'Le mot de passe doit contenir au moins 6 caractères'
+      } else if(this.registerForm.controls.confirmPassword.hasError('PasswordNoMatch')) {
+        errorMessage = 'Les mots de passes ne sont pas identiques'
+      } else {
+        errorMessage = 'Veuillez remplir tous les champs'
+      }
+
+      this.snackbarService.openErrorSnackBar(errorMessage)
     }
   }
 
@@ -67,7 +79,7 @@ export class RegisterComponent {
     }
 
     return this.registerForm.controls.password
-      .hasError('minlength') ? '6 caractères minimum' : '';
+      .hasError('minlength') ? 'Le mot de passe doit contenir au moins 6 caractères' : '';
   }
 
   getConfirmPasswordErrorMessage() {
@@ -80,7 +92,8 @@ export class RegisterComponent {
   }
 
   confirmPasswordValidator(control: AbstractControl): ValidationErrors | null {
-    const password = control.root.get('password');
-    return password && control.value !== password.value ? { 'PasswordNoMatch': true } : null;
+    return control.parent?.value.password === control.value
+      ? null
+      : { PasswordNoMatch: true };
   }
 }

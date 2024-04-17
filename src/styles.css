@@ -32,12 +32,16 @@ body {
   background-color: var(--gray-900);
 }
 
-.success-snackbar {
+.success-snackbar div[matsnackbarlabel]{
   color: white;
   background-color: green;
 }
 
-.error-snackbar {
+.error-snackbar div[matsnackbarlabel]{
   color: white;
   background-color: red;
+}
+
+.mdc-snackbar__surface {
+  padding-right: 0 !important;
 }

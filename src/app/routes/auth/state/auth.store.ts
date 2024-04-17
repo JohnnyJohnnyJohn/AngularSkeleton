@@ -7,7 +7,7 @@ export const authStore = createStore(
   withProps<AuthState>({ user: null, accessToken: null })
 );
 
-persistState(authStore, {key: 'manga-auth', storage: localStorageStrategy})
+persistState(authStore, {key: 'auth-store', storage: localStorageStrategy})
 
 export function updateAuthState(newState: AuthState) {
   authStore.update(state => (

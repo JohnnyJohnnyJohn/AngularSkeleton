@@ -9,7 +9,15 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: '',
+    loadComponent: () =>
+      import('./routes/home/components/home/home.component').then(
+        (c) => c.HomeComponent,
+      ),
+    title: 'Accueil',
+  },
+  {
     path: '**',
-    redirectTo: 'auth',
+    redirectTo: '',
   },
 ];
