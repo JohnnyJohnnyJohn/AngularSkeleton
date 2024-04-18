@@ -27,8 +27,8 @@ import {SnackbarService} from "../../../../core/services/snackbar.service";
 })
 export class RegisterComponent {
   registerForm = this.formBuilder.group({
-    lastName: ['', [Validators.required]],
-    firstName: ['', [Validators.required]],
+    lastname: ['', [Validators.required]],
+    firstname: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     confirmPassword: ['', [Validators.required, this.confirmPasswordValidator]]
@@ -43,6 +43,7 @@ export class RegisterComponent {
   ) {}
 
   onSubmit() {
+    console.log(this.registerForm.value);
     if(this.registerForm.valid) {
       this.authFacade.register(
         this.registerForm.value as RegisterDto

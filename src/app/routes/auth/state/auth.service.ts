@@ -13,11 +13,22 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(authUser: AuthDto) {
-    return this.http.post<AuthResponseDto>(`${this.apiAuthUrl}/login`, authUser);
+    return this.http.post<AuthResponseDto>(
+      `${this.apiAuthUrl}/login`,
+      authUser
+    );
   }
 
   register(newUser: RegisterDto) {
-    return this.http.post<AuthResponseDto>(`${this.apiAuthUrl}/register`, newUser);
+    return this.http.post<AuthResponseDto>(
+      `${this.apiAuthUrl}/register`,
+      {
+        firstname : newUser.firstname,
+        lastname : newUser.lastname,
+        email : newUser.email,
+        password : newUser.password
+      }
+    );
   }
 
   logout() {

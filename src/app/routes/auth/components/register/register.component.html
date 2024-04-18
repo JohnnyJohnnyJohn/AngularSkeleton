@@ -8,15 +8,15 @@
       <mat-card-content fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
         <mat-form-field appearance="outline" fxFlexFill>
           <mat-label>Prénom</mat-label>
-          <input matInput formControlName="firstName" required>
-          @if (registerForm.controls.firstName.invalid) {
+          <input matInput formControlName="firstname" required>
+          @if (registerForm.controls.firstname.invalid) {
             <mat-error>Veuillez entrer votre prénom</mat-error>
           }
         </mat-form-field>
         <mat-form-field appearance="outline" fxFlexFill>
           <mat-label>Nom</mat-label>
-          <input matInput formControlName="lastName" required>
-          @if (registerForm.controls.lastName.invalid) {
+          <input matInput formControlName="lastname" required>
+          @if (registerForm.controls.lastname.invalid) {
             <mat-error>Veuillez entrer votre nom</mat-error>
           }
         </mat-form-field>

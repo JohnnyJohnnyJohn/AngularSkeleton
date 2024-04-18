@@ -1,7 +1,7 @@
 export interface UserDto {
   _id: string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
 }
 
@@ -11,8 +11,8 @@ export interface AuthDto {
 }
 
 export interface RegisterDto {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   password: string;
 }
