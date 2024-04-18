@@ -1,27 +1,65 @@
-# AngularSkeleton
+# Squelette Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+Ce projet est un squelette Angular prêt à l'emploi, conçu pour accélérer le développement de nouvelles applications Angular. Il intègre des pratiques modernes de développement, des configurations optimisées et des outils essentiels pré-configurés.
 
-## Development server
+## Caractéristiques Principales
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Authentification**: Intègre un système d'authentification complet avec login, register et gestion de session.
+- **Intercepteur HTTP**: Gère les tokens JWT pour les requêtes et réponses HTTP.
+- **Snackbar Service**: Fournit un feedback visuel aux utilisateurs via des notifications.
+- **Lazy Loading**: Optimise la performance en chargeant les modules à la demande.
+- **Elf Store**: Utilisé pour la gestion d'état réactive.
+- **Angular Material**: Fournit des composants de haute qualité pour l'interface utilisateur.
 
-## Code scaffolding
+## Prérequis
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Pour utiliser ce squelette, vous aurez besoin de Node.js et du gestionnaire de paquets npm installés sur votre machine. Angular CLI doit également être installé pour exécuter les commandes de développement.
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Clonez ce dépôt sur votre machine locale en utilisant :
 
-## Running unit tests
+```bash
+git clone https://github.com/JohnnyJohnnyJohn/AngularSkeleton.git
+cd AngularSkeleton
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Installez les dépendances du projet :
 
-## Running end-to-end tests
+```bash
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Démarrage Rapide
 
-## Further help
+Pour lancer le serveur de développement :
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng serve
+```
+
+Ouvrez votre navigateur à `http://localhost:4200/` pour voir l'application en action.
+
+## Personnalisation
+
+Pour personnaliser ce squelette pour votre propre projet, suivez ces étapes :
+
+1. **Environnement**: Modifiez les fichiers `environment.ts` et `environment.prod.ts` pour ajuster les configurations spécifiques à l'environnement.
+2. **Composants et Services**: Ajoutez ou modifiez les composants, services et façades selon les besoins de votre application.
+3. **Thèmes Angular Material**: Personnalisez les thèmes selon votre identité visuelle dans le fichier `custom-theme.scss`.
+
+## Structure du Projet
+
+La structure du projet est organisée comme suit :
+
+- `src/app/core/`: Contient les services de base, intercepteurs et façades.
+- `src/app/modules/`: Modules de fonctionnalité avec lazy loading.
+- `src/app/shared/`: Composants, directives et pipes réutilisables.
+- `src/environments/`: Configuration des environnements de développement et production.
+
+## Contribuer
+
+Pour contribuer à ce projet, veuillez prendre contact ou soumettre des pull requests via GitHub.
+
+Nous espérons que ce squelette vous aidera à démarrer efficacement vos projets Angular !
+
