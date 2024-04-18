@@ -35,5 +35,18 @@
         </ol>
       </mat-list>
     </mat-card-content>
+    <mat-card-actions align="end">
+    @if (token$ | async) {
+      <button mat-fab extended color="primary" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        SE DÉCONNECTER
+      </button>
+    } @else {
+      <button mat-fab extended routerLink="{{ routeToLogin }}">
+        <mat-icon>login</mat-icon>
+        SE CONNECTER
+      </button>
+    }
+    </mat-card-actions>
   </mat-card>
 </main>

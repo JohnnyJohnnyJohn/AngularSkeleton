@@ -9,6 +9,13 @@ mat-card{
   padding: 20px;
 }
 
+mat-card-title{
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 mat-card-actions{
   padding: 10px 0 0 0;
 }

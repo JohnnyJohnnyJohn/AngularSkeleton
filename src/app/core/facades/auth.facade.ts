@@ -3,7 +3,7 @@ import { AuthResponseDto, AuthDto, RegisterDto } from '../../routes/auth/state/a
 import { updateAuthState } from '../../routes/auth/state/auth.store';
 import { AuthService } from '../../routes/auth/state/auth.service';
 import { tap } from "rxjs/operators";
-import { catchError, EMPTY } from "rxjs";
+import {catchError, EMPTY} from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
 import { SnackbarService } from "../services/snackbar.service";
 import { Router } from "@angular/router";
@@ -60,6 +60,6 @@ export class AuthFacade {
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['auth']);
+    this.snackBarService.openSuccessSnackBar("Déconnexion réussie!");
   }
 }

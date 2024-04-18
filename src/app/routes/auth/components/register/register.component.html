@@ -1,6 +1,9 @@
 <main fxLayout fxFlex="1 1 auto" fxLayoutAlign="center center">
 
   <mat-card class="mat-elevation-z6">
+    <mat-card-header fxLayoutAlign="center">
+      <mat-card-title>Inscription</mat-card-title>
+    </mat-card-header>
     <form [formGroup]="registerForm" (submit)="onSubmit()">
       <mat-card-content fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
         <mat-form-field appearance="outline" fxFlexFill>
