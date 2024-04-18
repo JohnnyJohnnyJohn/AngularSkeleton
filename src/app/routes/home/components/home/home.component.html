@@ -1,52 +1,76 @@
 <main fxLayout fxFlex="1 1 auto" fxLayoutAlign="center center">
-  <mat-card class="home-container">
-    <mat-card-header fxLayout="column">
-      <mat-card-title>Angular Skeleton</mat-card-title>
-      <p>Ce squelette est équipé des meilleures pratiques et outils pour démarrer rapidement le développement d'une application Angular.</p>
+  <mat-card>
+    <mat-card-header fxLayout="row" fxLayoutAlign="start center">
+      <img mat-card-avatar src="assets/angular-icon.svg" alt="Logo Angular">
+      <mat-card-title>Squelette Angular</mat-card-title>
     </mat-card-header>
-    <mat-divider></mat-divider>
+    <mat-divider [inset]="true"></mat-divider>
     <mat-card-content>
-      <mat-list>
-        <div mat-subheader>Caractéristiques Principales</div>
-        <ul>
-          <li>Intercepteur de Token pour la gestion des authentifications</li>
-          <li>Snackbar Service pour les notifications utilisateur</li>
-          <li>Auth Facade pour simplifier les flux d'authentification</li>
-          <li>Lazy Loading pour une meilleure performance</li>
-          <li>Store Elf pour la gestion d'état</li>
-        </ul>
-      </mat-list>
-      <mat-list>
-        <div mat-subheader>Guide de Démarrage Rapide</div>
-        <ol>
-          <li>Clonez le dépôt : <code>git clone url_du_dépôt</code></li>
-          <li>Installez les dépendances : <code>npm install</code></li>
-          <li>Lancez le serveur de développement : <code>ng serve</code></li>
-          <li>Visitez <code>http://localhost:4200/</code> pour voir l'application en action.</li>
-        </ol>
-      </mat-list>
-      <mat-list>
-        <div mat-subheader>Personnalisation</div>
-        <p matListItemLine>Pour adapter ce squelette à votre projet personnel, suivez ces étapes :</p>
-        <ol>
-          <li>Modifiez les variables d'environnement dans les fichiers <code>environment.ts</code> et <code>environment.prod.ts</code></li>
-          <li>Adaptez les modules, composants, services et façades selon les besoins de votre application.</li>
-          <li>Utilisez le module Angular CLI pour ajouter ou modifier les éléments de votre application.</li>
-        </ol>
-      </mat-list>
+      <p>Ce projet est un squelette Angular prêt à l'emploi, conçu pour accélérer le développement de nouvelles applications Angular. Il intègre des pratiques modernes de développement, des configurations optimisées et des outils essentiels pré-configurés.</p>
+      <h3>Caractéristiques Principales</h3>
+      <ul>
+        <li><strong>Authentification</strong>: Intègre un système d'authentification complet avec login, register et gestion de session.</li>
+        <li><strong>Intercepteur HTTP</strong>: Gère les tokens JWT pour les requêtes et réponses HTTP.</li>
+        <li><strong>Snackbar Service</strong>: Fournit un feedback visuel aux utilisateurs via des notifications.</li>
+        <li><strong>Lazy Loading</strong>: Optimise la performance en chargeant les modules à la demande.</li>
+        <li><strong>Elf Store</strong>: Utilisé pour la gestion d'état réactive.</li>
+        <li><strong>Angular Material</strong>: Fournit des composants de haute qualité pour l'interface utilisateur.</li>
+      </ul>
+
+      <h3>Prérequis</h3>
+      <p>Pour utiliser ce squelette, vous aurez besoin de Node.js et du gestionnaire de paquets npm installés sur votre machine. Angular CLI doit également être installé pour exécuter les commandes de développement.</p>
+
+      <h3>Installation</h3>
+      <p>Clonez ce dépôt sur votre machine locale en utilisant :</p>
+      <pre>git clone https://github.com/JohnnyJohnnyJohn/AngularSkeleton.git
+cd AngularSkeleton</pre>
+      <p>Installez les dépendances du projet :</p>
+      <pre>npm install</pre>
+
+      <h3>Démarrage Rapide</h3>
+      <p>Pour lancer le serveur de développement :</p>
+      <pre>ng serve</pre>
+      <p>Ouvrez votre navigateur à <a href="http://localhost:4200/">http://localhost:4200/</a> pour voir l'application en action.</p>
+
+      <h3>Personnalisation</h3>
+      <p>Pour personnaliser ce squelette pour votre propre projet, suivez ces étapes :</p>
+      <ol>
+        <li><strong>Environnement</strong>: Modifiez les fichiers <code>environment.ts</code> et <code>environment.prod.ts</code> pour ajuster les configurations spécifiques à l'environnement.</li>
+        <li><strong>Composants et Services</strong>: Ajoutez ou modifiez les composants, services et façades selon les besoins de votre application.</li>
+        <li><strong>Thèmes Angular Material</strong>: Personnalisez les thèmes selon votre identité visuelle dans le fichier <code>custom-theme.scss</code>.</li>
+      </ol>
+
+      <h3>Structure du Projet</h3>
+      <p>La structure du projet est organisée comme suit :</p>
+      <ul>
+        <li><code>src/app/core/</code>: Contient les services de base, intercepteurs et façades.</li>
+        <li><code>src/app/routes/</code>: Contient les composants pour les différentes pages de l'application.</li>
+        <li><code>src/app/shared/</code>: Composants, directives et modules réutilisables.</li>
+        <li><code>src/environments/</code>: Configuration des environnements de développement et production.</li>
+      </ul>
+
+      <h3>Contribuer</h3>
+      <p>Pour contribuer à ce projet, veuillez prendre contact ou soumettre des pull requests via GitHub.</p>
+
+      <h3>Remerciements</h3>
+      <p>Nous espérons que ce squelette vous aidera à démarrer efficacement vos projets Angular !</p>
     </mat-card-content>
+    <mat-divider [inset]="true"></mat-divider>
     <mat-card-actions align="end">
-    @if (token$ | async) {
-      <button mat-fab extended color="primary" (click)="logout()">
-        <mat-icon>logout</mat-icon>
-        SE DÉCONNECTER
-      </button>
-    } @else {
-      <button mat-fab extended routerLink="{{ routeToLogin }}">
-        <mat-icon>login</mat-icon>
-        SE CONNECTER
-      </button>
-    }
+      @if (token$ | async) {
+        <button mat-fab extended color="primary" (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          SE DÉCONNECTER
+        </button>
+      } @else {
+        <button mat-fab extended routerLink="{{ routeToLogin }}">
+          <mat-icon>login</mat-icon>
+          SE CONNECTER
+        </button>
+      }
     </mat-card-actions>
   </mat-card>
+
+
+
 </main>

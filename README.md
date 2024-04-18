@@ -53,8 +53,8 @@ Pour personnaliser ce squelette pour votre propre projet, suivez ces étapes :
 La structure du projet est organisée comme suit :
 
 - `src/app/core/`: Contient les services de base, intercepteurs et façades.
-- `src/app/modules/`: Modules de fonctionnalité avec lazy loading.
-- `src/app/shared/`: Composants, directives et pipes réutilisables.
+- `src/app/routes/`: Contient les composants pour les différentes pages de l'application.
+- `src/app/shared/`: Composants, directives et modules réutilisables.
 - `src/environments/`: Configuration des environnements de développement et production.
 
 ## Contribuer
