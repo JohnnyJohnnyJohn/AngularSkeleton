@@ -3,18 +3,16 @@ main {
 }
 
 mat-card {
-  max-width: 1200px;
+  max-width: 960px;
   color: white;
 
   mat-card-header{
     padding: 16px;
 
-    mat-card-title {
-      font-size: 2rem;
-    }
-
     img {
       margin-bottom: 0;
+      margin-right: 16px;
+      width: 50px;
     }
   }
 

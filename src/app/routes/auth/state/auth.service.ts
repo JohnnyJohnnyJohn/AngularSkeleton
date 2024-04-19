@@ -15,7 +15,10 @@ export class AuthService {
   login(authUser: AuthDto) {
     return this.http.post<AuthResponseDto>(
       `${this.apiAuthUrl}/login`,
-      authUser
+      {
+        email : authUser.email,
+        password : authUser.password
+      }
     );
   }
 

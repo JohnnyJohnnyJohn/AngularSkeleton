@@ -21,7 +21,7 @@ export class AuthFacade {
   login(authDto: AuthDto) {
     return this.authService.login(authDto).pipe(
       catchError((err: HttpErrorResponse) => {
-        if (err.error.statusCode === 400) {
+        if (err.error.statusCode === 401) {
           this.snackBarService.openErrorSnackBar("Email et/ou mot de passe incorrect(s)");
         } else {
           this.snackBarService.openErrorSnackBar("Échec lors de la connexion! Veuillez réessayer.");

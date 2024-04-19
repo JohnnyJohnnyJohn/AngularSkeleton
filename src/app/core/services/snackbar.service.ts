@@ -10,7 +10,7 @@ export class SnackbarService {
 
   openSuccessSnackBar(
     message: string,
-    action?: string
+    action: string = "OK"
   ) {
     this.snackBar.open(
       message,
@@ -24,7 +24,7 @@ export class SnackbarService {
 
   openErrorSnackBar(
     message: string,
-    action?: string,
+    action: string = "OK"
   ) {
     this.snackBar.open(
       message,
