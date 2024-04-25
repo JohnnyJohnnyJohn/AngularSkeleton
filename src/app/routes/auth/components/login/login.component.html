@@ -15,7 +15,7 @@
                  autocomplete="username"
                  required>
           @if (loginForm.controls.email.invalid) {
-            <mat-error>Veuillez entrer votre email</mat-error>
+            <mat-error>{{ getEmailErrorMessage() }}</mat-error>
           }
         </mat-form-field>
         <mat-form-field appearance="outline" fxFlexFill>

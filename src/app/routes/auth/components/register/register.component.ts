@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {MaterialModule} from "../../../../shared/material/material.module";
 import {RouterLink} from "@angular/router";
 import {
   AbstractControl,
@@ -10,17 +9,26 @@ import {
   Validators
 } from "@angular/forms";
 import {RegisterDto} from "../../state/auth.model";
-import {AuthFacade} from "../../../../core/facades/auth.facade";
+import {AuthFacade} from "../../auth.facade";
 import {SnackbarService} from "../../../../core/services/snackbar.service";
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [
     FlexLayoutModule,
-    MaterialModule,
     RouterLink,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule
   ],
   templateUrl: './register.component.html',
   styleUrl: '../auth.component.css'
@@ -43,7 +51,6 @@ export class RegisterComponent {
   ) {}
 
   onSubmit() {
-    console.log(this.registerForm.value);
     if(this.registerForm.valid) {
       this.authFacade.register(
         this.registerForm.value as RegisterDto
