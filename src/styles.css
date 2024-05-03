@@ -1,48 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body {
-  --gray-900: oklch(19.37% 0.006 300.98);
-  --gray-700: oklch(36.98% 0.014 302.71);
-  --gray-400: oklch(70.9% 0.015 304.04);
-
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--gray-900);
-}
-
-button {
-  border-radius: 4px !important;
-}
-
-.success-snackbar {
-  div[matsnackbarlabel] {
-    color: white;
-    font-size: 1rem;
-  }
-
-  button {
-    color: green !important;
-    background-color: white;
-  }
-
-  .mdc-snackbar__surface {
-    background-color: green !important;
-  }
-}
-
-.error-snackbar {
-  div[matsnackbarlabel] {
-    color: white;
-    font-size: 1rem;
-  }
-
-  button {
-    color: #d50000 !important;
-    background-color: white;
-  }
-
-  .mdc-snackbar__surface {
-    background-color: #d50000 !important;
-  }
-}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -4,14 +4,7 @@ import {NonNullableFormBuilder, ReactiveFormsModule, Validators} from "@angular/
 import {RouterLink} from "@angular/router";
 import {AuthDto} from "../../state/auth.model";
 import {AuthFacade} from "../../auth.facade";
-import {SnackbarService} from "../../../../core/services/snackbar.service";
-import {MatCardModule} from "@angular/material/card";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
-import {MatInput, MatInputModule} from "@angular/material/input";
-
-
+import {NotificationService} from "../../../../core/services/notification.service";
 
 @Component({
   selector: 'app-login',
@@ -20,14 +13,8 @@ import {MatInput, MatInputModule} from "@angular/material/input";
     FlexLayoutModule,
     RouterLink,
     ReactiveFormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule
   ],
-  templateUrl: './login.component.html',
-  styleUrl: '../auth.component.css'
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
   loginForm = this.formBuilder.group({
@@ -39,7 +26,7 @@ export class LoginComponent {
 
   constructor(
     private authFacade: AuthFacade,
-    private snackbarService: SnackbarService,
+    private notificationService: NotificationService,
     private formBuilder: NonNullableFormBuilder
   ){}
 
@@ -66,7 +53,7 @@ export class LoginComponent {
         errorMessage = 'Veuillez remplir tous les champs';
       }
 
-      this.snackbarService.openErrorSnackBar(errorMessage)
+      this.notificationService.notify('Erreur de connexion', errorMessage, 'error');
     }
   }
 }

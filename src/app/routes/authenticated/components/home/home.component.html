@@ -1,76 +1,59 @@
-<main fxLayout fxFlex="1 1 auto" fxLayoutAlign="center center">
-  <mat-card>
-    <mat-card-header fxLayout="row" fxLayoutAlign="start center">
-      <img src="assets/angular-icon.svg" alt="Logo Angular">
-      <h1>Squelette Angular</h1>
-    </mat-card-header>
-    <mat-divider [inset]="true"></mat-divider>
-    <mat-card-content>
+<main class="flex h-[calc(100%-88px)] w-full items-center justify-center p-8 lg:p-12">
+  <div class="flex flex-col bg-gray-100 dark:bg-slate-900 rounded-lg shadow-xl w-full max-w-4xl max-h-full border border-slate-500 dark:border-gray-700">
+    <div class="flex items-center p-4 border-b border-gray-300 dark:border-gray-700">
+      <h1 class="text-xl font-bold text-gray-900 dark:text-white">Squelette Angular</h1>
+    </div>
+
+    <div class="p-4 text-gray-900 dark:text-gray-300 overflow-y-scroll">
       <p>Ce projet est un squelette Angular prêt à l'emploi, conçu pour accélérer le développement de nouvelles applications Angular. Il intègre des pratiques modernes de développement, des configurations optimisées et des outils essentiels pré-configurés.</p>
-      <h3>Caractéristiques Principales</h3>
-      <ul>
+      <h2 class="mt-4 mb-2 font-semibold">Caractéristiques Principales</h2>
+      <ul class="list-disc pl-5">
         <li><strong>Authentification</strong>: Intègre un système d'authentification complet avec login, register et gestion de session.</li>
         <li><strong>Intercepteur HTTP</strong>: Gère les tokens JWT pour les requêtes et réponses HTTP.</li>
-        <li><strong>Snackbar Service</strong>: Fournit un feedback visuel aux utilisateurs via des notifications.</li>
+        <li><strong>Notification Service</strong>: Fournit un feedback visuel aux utilisateurs via des notifications.</li>
         <li><strong>Lazy Loading</strong>: Optimise la performance en chargeant les modules à la demande.</li>
         <li><strong>Elf Store</strong>: Utilisé pour la gestion d'état réactive.</li>
         <li><strong>Angular Material</strong>: Fournit des composants de haute qualité pour l'interface utilisateur.</li>
       </ul>
 
-      <h3>Prérequis</h3>
+      <h2 class="mt-4 mb-2 font-semibold">Prérequis</h2>
       <p>Pour utiliser ce squelette, vous aurez besoin de Node.js et du gestionnaire de paquets npm installés sur votre machine. Angular CLI doit également être installé pour exécuter les commandes de développement.</p>
 
-      <h3>Installation</h3>
+      <h2 class="mt-4 mb-2 font-semibold">Installation</h2>
       <p>Clonez ce dépôt sur votre machine locale en utilisant :</p>
-      <pre>git clone https://github.com/JohnnyJohnnyJohn/AngularSkeleton.git
+      <pre class="bg-gray-200 dark:bg-gray-800 p-2 rounded">git clone https://github.com/JohnnyJohnnyJohn/AngularSkeleton.git
 cd AngularSkeleton</pre>
       <p>Installez les dépendances du projet :</p>
-      <pre>npm install</pre>
+      <pre class="bg-gray-200 dark:bg-gray-800 p-2 rounded">npm install</pre>
 
-      <h3>Démarrage Rapide</h3>
+      <h2 class="mt-4 mb-2 font-semibold">Démarrage Rapide</h2>
       <p>Pour lancer le serveur de développement :</p>
-      <pre>ng serve</pre>
-      <p>Ouvrez votre navigateur à <a href="http://localhost:4200/">http://localhost:4200/</a> pour voir l'application en action.</p>
+      <pre class="bg-gray-200 dark:bg-gray-800 p-2 rounded">ng serve</pre>
+      <p>Ouvrez votre navigateur à <a href="http://localhost:4200/" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">http://localhost:4200/</a> pour voir l'application en action.</p>
 
-      <h3>Personnalisation</h3>
+      <h2 class="mt-4 mb-2 font-semibold">Personnalisation</h2>
       <p>Pour personnaliser ce squelette pour votre propre projet, suivez ces étapes :</p>
-      <ol>
+      <ol class="list-decimal pl-5">
         <li><strong>Environnement</strong>: Modifiez les fichiers <code>environment.ts</code> et <code>environment.prod.ts</code> pour ajuster les configurations spécifiques à l'environnement.</li>
         <li><strong>Composants et Services</strong>: Ajoutez ou modifiez les composants, services et façades selon les besoins de votre application.</li>
         <li><strong>Thèmes Angular Material</strong>: Personnalisez les thèmes selon votre identité visuelle dans le fichier <code>custom-theme.scss</code>.</li>
       </ol>
 
-      <h3>Structure du Projet</h3>
+      <h2 class="mt-4 mb-2 font-semibold">Structure du Projet</h2>
       <p>La structure du projet est organisée comme suit :</p>
-      <ul>
+      <ul class="list-disc pl-5">
         <li><code>src/app/core/</code>: Contient les services de base, intercepteurs et façades.</li>
         <li><code>src/app/routes/</code>: Contient les composants pour les différentes pages de l'application.</li>
         <li><code>src/app/shared/</code>: Composants, directives et modules réutilisables.</li>
         <li><code>src/environments/</code>: Configuration des environnements de développement et production.</li>
       </ul>
 
-      <h3>Contribuer</h3>
+      <h2 class="mt-4 mb-2 font-semibold">Contribuer</h2>
       <p>Pour contribuer à ce projet, veuillez prendre contact ou soumettre des pull requests via GitHub.</p>
 
-      <h3>Remerciements</h3>
+      <h2 class="mt-4 mb-2 font-semibold">Remerciements</h2>
       <p>Nous espérons que ce squelette vous aidera à démarrer efficacement vos projets Angular !</p>
-    </mat-card-content>
-    <mat-divider [inset]="true"></mat-divider>
-    <mat-card-actions align="end">
-      @if (token$ | async) {
-        <button mat-fab extended color="primary" (click)="logout()">
-          <mat-icon>logout</mat-icon>
-          SE DÉCONNECTER
-        </button>
-      } @else {
-        <button mat-fab extended routerLink="{{ routeToLogin }}">
-          <mat-icon>login</mat-icon>
-          SE CONNECTER
-        </button>
-      }
-    </mat-card-actions>
-  </mat-card>
-
-
-
+    </div>
+    <hr class="border-t mx-4 border-gray-300 dark:border-gray-700">
+  </div>
 </main>

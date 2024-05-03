@@ -5,8 +5,8 @@ import { AuthService } from './state/auth.service';
 import { tap } from "rxjs/operators";
 import {catchError, EMPTY} from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
-import { SnackbarService } from "../../core/services/snackbar.service";
 import { Router } from "@angular/router";
+import { NotificationService } from "../../core/services/notification.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ import { Router } from "@angular/router";
 export class AuthFacade {
   constructor(
     private authService: AuthService,
-    private snackBarService: SnackbarService,
+    private notificationService: NotificationService,
     private router: Router
   ) {}
 
@@ -22,36 +22,60 @@ export class AuthFacade {
     return this.authService.login(authDto).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err.error.statusCode === 401) {
-          this.snackBarService.openErrorSnackBar("Email et/ou mot de passe incorrect(s)");
+          this.notificationService.notify(
+            "Erreur de connexion",
+            "Email et/ou mot de passe incorrect(s)",
+            'error'
+          );
         } else {
-          this.snackBarService.openErrorSnackBar("Échec lors de la connexion! Veuillez réessayer.");
+          this.notificationService.notify(
+            "Erreur de connexion",
+            "Échec lors de la connexion! Veuillez réessayer.",
+            'error'
+          );
         }
         return EMPTY
       }),
       tap({
         next: (response: AuthResponseDto) => {
           updateAuthState(response);
-          this.snackBarService.openSuccessSnackBar("Connexion réussie!");
+          this.notificationService.notify(
+            "Connexion réussie!",
+            "Bienvenue!",
+            'success'
+          );
           this.router.navigate(['']);
         }
       })
     );
   }
 
-  register(user: RegisterDto) {
-    return this.authService.register(user).pipe(
+  register(registerDto: RegisterDto) {
+    return this.authService.register(registerDto).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err.error.statusCode === 400) {
-          this.snackBarService.openErrorSnackBar("Cet email est déjà utilisé");
+          this.notificationService.notify(
+            "Erreur d'inscription",
+            "Cet email est déjà utilisé",
+            'error'
+          );
         } else {
-          this.snackBarService.openErrorSnackBar("Échec lors de l\'inscription! Veuillez réessayer.");
+          this.notificationService.notify(
+            "Erreur d'inscription",
+            "Échec lors de l\'inscription! Veuillez réessayer.",
+            'error'
+          );
         }
         return EMPTY
       }),
       tap({
         next: (response: AuthResponseDto) => {
           updateAuthState(response);
-          this.snackBarService.openSuccessSnackBar("Inscription réussie!");
+          this.notificationService.notify(
+            "Inscription réussie!",
+            "Bienvenue!",
+            'success'
+          );
           this.router.navigate(['']);
         }
       })
@@ -60,6 +84,10 @@ export class AuthFacade {
 
   logout() {
     this.authService.logout();
-    this.snackBarService.openSuccessSnackBar("Déconnexion réussie!");
+    this.notificationService.notify(
+      "Déconnexion réussie!",
+      "À bientôt!",
+      'info'
+    );
   }
 }

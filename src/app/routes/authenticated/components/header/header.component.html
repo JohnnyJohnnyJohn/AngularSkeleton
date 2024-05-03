@@ -1,0 +1,39 @@
+<header class="sticky top-0 z-10 h-20">
+  <nav
+    class="inset-x-0 w-full px-4 py-1 bg-gray-100 dark:bg-slate-900 shadow-lg border-b border-slate-600 dark:border-gray-700"
+  >
+    <div class="flex justify-between p-4">
+      <img src="../../../../../../assets/angular-icon.svg" alt="Logo Angular" class="h-12 w-12">
+      <div class="flex flex-1 items-center justify-end space-x-4 font-semibold ">
+        @if (token$ | async) {
+          <button
+            class="flex w-32 justify-center rounded-md border border-slate-600 dark:border-gray-700 px-3 py-1.5 text-sm
+            font-semibold leading-6 text-white shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2
+            focus-visible:outline-offset-2 focus-visible:outline-slate-950 transition duration-500 ease-out"
+            (click)="logout()"
+          >
+            Se déconnecter
+          </button>
+        } @else {
+          <button
+            routerLink="{{routeToLogin}}"
+            class="flex w-32 justify-center rounded-md border border-slate-600 dark:border-gray-700 px-3 py-1.5 text-sm
+            font-semibold leading-6 text-white shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2
+            focus-visible:outline-offset-2 focus-visible:outline-slate-950 transition duration-500 ease-out"
+          >
+            Se connecter
+          </button>
+          <button
+            routerLink="{{routeToRegister}}"
+            class="flex w-32 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6
+          text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
+          focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition duration-500 ease-out"
+          >
+            S'inscrire
+          </button>
+        }
+
+      </div>
+    </div>
+  </nav>
+</header>
