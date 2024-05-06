@@ -10,14 +10,16 @@ export class NotificationService {
   notify(title: string, message: string, type: 'success' | 'error' | 'info'): void {
     const notification = { title, message, type, isVisible: false };
     this.notifications().unshift(notification);
-    setTimeout(() => notification.isVisible = true, 10);
-    setTimeout(() => this.closeNotification(notification), 5000);
+    setTimeout(() => {
+      notification.isVisible = true;
+      setTimeout(() => this.closeNotification(notification), 5000)
+    }, 10);
   }
 
   closeNotification(notification: Notification) {
     notification.isVisible = false;
     setTimeout(
-      () => this.notifications().filter(n => n !== notification), 200
+      () => this.notifications.set(this.notifications().filter(n => n !== notification)), 200
     );
   }
 }

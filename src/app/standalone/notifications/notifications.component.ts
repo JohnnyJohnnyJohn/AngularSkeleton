@@ -16,7 +16,7 @@ export interface Notification {
 })
 export class NotificationsComponent {
   notificationService= inject(NotificationService);
-  notifications = this.notificationService.notifications()
+  notifications = this.notificationService.notifications
 
   closeNotification(notification: Notification) {
     this.notificationService.closeNotification(notification);
