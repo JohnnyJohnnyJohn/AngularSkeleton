@@ -1,4 +1,4 @@
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+<div class="flex h-[calc(100%-88px)] flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <img class="mx-auto h-10 w-auto" src="assets/angular-icon.svg" alt="Angular Icon">
     <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">Inscription</h2>
@@ -171,7 +171,7 @@
           type="submit"
           class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6
           text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
-          focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition duration-500 ease-out"
         >
           S'inscrire
         </button>
@@ -181,7 +181,7 @@
     <p class="mt-10 text-center text-sm text-gray-500 dark:text-gray-400">
       Vous avez déjà un compte ?
       <a routerLink="/auth/login" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500
-      dark:text-indigo-400 dark:hover:text-indigo-300">
+      dark:text-indigo-400 dark:hover:text-indigo-300 transition duration-500 ease-out">
         Connectez-vous
       </a>
     </p>
@@ -189,77 +189,3 @@
 </div>
 
 
-<!--
-<mat-card class="mat-elevation-z6">
-  <mat-card-header fxLayoutAlign="center">
-    <mat-card-title>Inscription</mat-card-title>
-  </mat-card-header>
-  <form [formGroup]="registerForm" (submit)="onSubmit()">
-    <mat-card-content fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-      <mat-form-field appearance="outline" fxFlexFill>
-        <mat-label>Prénom</mat-label>
-        <input matInput formControlName="firstname" required>
-        @if (registerForm.controls.firstname.invalid) {
-          <mat-error>Veuillez entrer votre prénom</mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field appearance="outline" fxFlexFill>
-        <mat-label>Nom</mat-label>
-        <input matInput formControlName="lastname" required>
-        @if (registerForm.controls.lastname.invalid) {
-          <mat-error>Veuillez entrer votre nom</mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field appearance="outline" fxFlexFill>
-        <mat-label>Email</mat-label>
-        <input matInput
-               type="text"
-               formControlName="email"
-               autocomplete="username"
-               required>
-        @if (registerForm.controls.email.invalid) {
-          <mat-error>{{getEmailErrorMessage()}}</mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field appearance="outline" fxFlexFill>
-        <mat-label>Mot de passe</mat-label>
-        <input matInput
-               type="{{hidePassword ? 'password' : 'text'}}"
-               formControlName="password"
-               autocomplete="new-password"
-               required>
-        <button mat-icon-button type="button" matSuffix color="accent" (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-        @if (registerForm.controls.password.invalid) {
-          <mat-error>{{getPasswordErrorMessage()}}</mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field appearance="outline" fxFlexFill>
-        <mat-label>Confirmer mot de passe</mat-label>
-        <input matInput
-               type="{{hidePassword ? 'password' : 'text'}}"
-               formControlName="confirmPassword"
-               autocomplete="new-password"
-               required>
-        <button mat-icon-button type="button" matSuffix color="accent" (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-        @if (registerForm.controls.confirmPassword.invalid || this.registerForm.hasError('PasswordNoMatch')) {
-          <mat-error>{{getConfirmPasswordErrorMessage()}}</mat-error>
-        }
-        @if (this.registerForm.hasError('PasswordNoMatch')) {
-          <mat-hint>Les mots de passes ne sont pas identiques</mat-hint>
-        }
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-      <button mat-fab extended type="submit">
-        <mat-icon>person_add</mat-icon>
-        S'INSCRIRE
-      </button>
-      <a mat-button routerLink="/auth/login">Déjà inscrit ? Connectez-vous</a>
-    </mat-card-actions>
-  </form>
-</mat-card>
--->

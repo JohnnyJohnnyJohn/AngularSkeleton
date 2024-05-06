@@ -1,12 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {NotificationService} from "../../core/services/notification.service";
-
-export interface Notification {
-  title: string;
-  message: string;
-  type: 'success' | 'error' | 'warning' | 'info';
-  isVisible: boolean;
-}
+import {Notification} from "../../core/services/notification.service";
 
 @Component({
   selector: 'app-notifications',
