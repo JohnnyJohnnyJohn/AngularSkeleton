@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {FlexLayoutModule} from "@angular/flex-layout";
 import {RouterLink} from "@angular/router";
 import {
   AbstractControl,
@@ -16,7 +15,6 @@ import {NotificationService} from "../../../../core/services/notification.servic
   selector: 'app-register',
   standalone: true,
   imports: [
-    FlexLayoutModule,
     RouterLink,
     ReactiveFormsModule,
   ],

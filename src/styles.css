@@ -2,3 +2,45 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --color-primary: #3730a3;
+  --color-on-primary: #ffffff;
+  --color-secondary: #9333ea;
+  --color-on-secondary: #ffffff;
+  --color-tertiary: #6c7791;
+  --color-on-tertiary: #ffffff;
+  --color-text: #111827;
+  --color-text-light: #565a65;
+  --color-button-bg: #4f46e5;
+  --color-button-hover: #4338ca;
+  --color-link: #4f46e5;
+  --color-link-hover: #4338ca;
+  --color-info: #3b82f6;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-background-base: #ffffff;
+  --color-background-elevated: #e4e4ea;
+}
+
+.dark {
+  --color-primary: #6366f1;
+  --color-on-primary: #f8fafc;
+  --color-secondary: #9333ea;
+  --color-on-secondary: #f8fafc;
+  --color-tertiary: #3a4d67;
+  --color-on-tertiary: #f8fafc;
+  --color-text: #f8fafc;
+  --color-text-light: #e2e8f0;
+  --color-button-bg: #6366f1;
+  --color-button-hover: #5658e8;
+  --color-link: #6366f1;
+  --color-link-hover: #5658e8;
+  --color-info: #2c89ff;
+  --color-success: #13bf7d;
+  --color-warning: #f1b809;
+  --color-danger: #cf3030;
+  --color-background-base: #1f2937;
+  --color-background-elevated: #2e3742;
+}

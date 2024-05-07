@@ -15,14 +15,13 @@
             formControlName="lastname"
             type="text"
             required
-            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset
-            placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-slate-800
-            dark:text-gray-300 dark:placeholder-gray-400
+            class="block w-full rounded-md border-0 bg-background-base py-1.5 text-text shadow-sm ring-1 ring-inset
+            placeholder:text-text-light focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6
             {{ registerForm.controls.lastname.touched && registerForm.controls.lastname.invalid ?
-            'ring-red-500 focus:ring-red-500' : 'ring-gray-300 focus:ring-indigo-600 dark:focus:ring-indigo-300 dark:ring-gray-600' }}">
+            'ring-danger focus:ring-danger' : 'ring-tertiary focus:ring-primary' }}">
         </div>
         @if (registerForm.controls.lastname.touched && registerForm.controls.lastname.invalid) {
-          <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          <span class="flex items-center font-medium tracking-wide text-danger text-xs mt-1 ml-1">
             Veuillez entrer votre nom
           </span>
         } @else {
@@ -31,7 +30,7 @@
       </div>
 
       <div>
-        <label for="firstname" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">Prénom</label>
+        <label for="firstname" class="block text-sm font-medium leading-6 text-text">Prénom</label>
         <div class="mt-2">
           <input
             id="firstname"
@@ -39,14 +38,13 @@
             formControlName="firstname"
             type="text"
             required
-            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset
-            placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-slate-800
-            dark:text-gray-300 dark:placeholder-gray-400
+            class="block w-full rounded-md border-0 bg-background-base py-1.5 text-text shadow-sm ring-1 ring-inset
+            placeholder:text-text-light focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6
             {{ registerForm.controls.firstname.touched && registerForm.controls.firstname.invalid ?
-            'ring-red-500 focus:ring-red-500' : 'ring-gray-300 focus:ring-indigo-600 dark:focus:ring-indigo-300 dark:ring-gray-600' }}">
+            'ring-danger focus:ring-danger' : 'ring-tertiary focus:ring-primary' }}">
         </div>
         @if (registerForm.controls.firstname.touched && registerForm.controls.firstname.invalid) {
-          <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          <span class="flex items-center font-medium tracking-wide text-danger text-xs mt-1 ml-1">
             Veuillez entrer votre prénom
           </span>
         } @else {
@@ -55,7 +53,7 @@
       </div>
 
       <div>
-        <label for="email" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">Email</label>
+        <label for="email" class="block text-sm font-medium leading-6 text-text">Email</label>
         <div class="mt-2">
           <input
             id="email"
@@ -64,15 +62,14 @@
             type="email"
             autocomplete="username"
             required
-            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset
-            placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-slate-800
-            dark:text-gray-300 dark:placeholder-gray-400
-            {{ registerForm.controls.email.touched && registerForm.controls.email.invalid ? 'ring-red-500 focus:ring-red-500' :
-             'ring-gray-300 focus:ring-indigo-600 dark:focus:ring-indigo-300 dark:ring-gray-600' }}"
+            class="block w-full rounded-md border-0 bg-background-base py-1.5 text-text shadow-sm ring-1 ring-inset
+            placeholder:text-text-light focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6
+            {{ registerForm.controls.email.touched && registerForm.controls.email.invalid ?
+            'ring-danger focus:ring-danger' : 'ring-tertiary focus:ring-primary' }}"
           >
         </div>
         @if (registerForm.controls.email.touched && registerForm.controls.email.invalid) {
-          <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          <span class="flex items-center font-medium tracking-wide text-danger text-xs mt-1 ml-1">
             {{ getEmailErrorMessage() }}
           </span>
         } @else {
@@ -82,12 +79,12 @@
       </div>
 
       <div>
-        <label for="password" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
+        <label for="password" class="block text-sm font-medium leading-6 text-text">
           Mot de passe
         </label>
         <div class="relative mt-2">
           <div
-            class="absolute top-[8px] right-3 grid h-5 w-5 place-items-center text-blue-gray-500 dark:text-indigo-300 cursor-pointer"
+            class="absolute top-[8px] right-3 grid h-5 w-5 place-items-center text-button-bg cursor-pointer"
             (click)="hidePassword = !hidePassword"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -108,14 +105,13 @@
             type="{{ hidePassword ? 'password' : 'text'}}"
             autocomplete="new-password"
             required
-            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset
-            placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-slate-800
-            dark:text-gray-300 dark:placeholder-gray-400
+            class="block w-full rounded-md border-0 bg-background-base py-1.5 text-text shadow-sm ring-1 ring-inset
+            placeholder:text-text-light focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6
             {{ registerForm.controls.password.touched && registerForm.controls.password.invalid ?
-            'ring-red-500 focus:ring-red-500' : 'ring-gray-300 focus:ring-indigo-600 dark:focus:ring-indigo-300 dark:ring-gray-600' }}"
+            'ring-danger focus:ring-danger' : 'ring-tertiary focus:ring-primary' }}"
           >
           @if (registerForm.controls.password.touched && registerForm.controls.password.invalid) {
-            <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+            <span class="flex items-center font-medium tracking-wide text-danger text-xs mt-1 ml-1">
               {{ getPasswordErrorMessage() }}
             </span>
           } @else {
@@ -125,12 +121,12 @@
       </div>
 
       <div>
-        <label for="confirmPassword" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
+        <label for="confirmPassword" class="block text-sm font-medium leading-6 text-text">
           Confirmer le mot de passe
         </label>
         <div class="relative mt-2">
           <div
-            class="absolute top-[8px] right-3 grid h-5 w-5 place-items-center text-blue-gray-500 dark:text-indigo-300 cursor-pointer"
+            class="absolute top-[8px] right-3 grid h-5 w-5 place-items-center text-button-bg cursor-pointer"
             (click)="hidePassword = !hidePassword"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -150,14 +146,13 @@
           formControlName="confirmPassword"
           type="{{ hidePassword ? 'password' : 'text'}}"
           required
-          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset
-          placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-slate-800
-          dark:text-gray-300 dark:placeholder-gray-400
+          class="block w-full rounded-md border-0 bg-background-base py-1.5 text-text shadow-sm ring-1 ring-inset
+            placeholder:text-text-light focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6
           {{ registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.invalid ?
-          'ring-red-500 focus:ring-red-500' : 'ring-gray-300 focus:ring-indigo-600 dark:focus:ring-indigo-300 dark:ring-gray-600' }}"
+          'ring-danger focus:ring-danger' : 'ring-tertiary focus:ring-primary' }}"
         >
           @if (registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.invalid) {
-            <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+            <span class="flex items-center font-medium tracking-wide text-danger text-xs mt-1 ml-1">
               {{ getConfirmPasswordErrorMessage() }}
             </span>
           } @else {
@@ -169,19 +164,19 @@
       <div>
         <button
           type="submit"
-          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6
-          text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
-          focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition duration-500 ease-out"
+          class="flex w-full justify-center rounded-md bg-button-bg px-3 py-1.5 text-sm font-semibold leading-6
+          text-white shadow-sm hover:bg-button-hover focus-visible:outline focus-visible:outline-2
+          focus-visible:outline-offset-2 focus-visible:outline-button-bg transition duration-500 ease-out"
         >
           S'inscrire
         </button>
       </div>
     </form>
 
-    <p class="mt-10 text-center text-sm text-gray-500 dark:text-gray-400">
+    <p class="mt-10 text-center text-sm text-text-light">
       Vous avez déjà un compte ?
-      <a routerLink="/auth/login" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500
-      dark:text-indigo-400 dark:hover:text-indigo-300 transition duration-500 ease-out">
+      <a routerLink="/auth/login" class="font-semibold leading-6 text-link hover:text-link-hover transition
+      duration-500 ease-out">
         Connectez-vous
       </a>
     </p>

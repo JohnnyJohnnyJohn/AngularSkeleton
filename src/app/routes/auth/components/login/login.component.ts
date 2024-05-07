@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {FlexLayoutModule} from "@angular/flex-layout";
 import {NonNullableFormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {RouterLink} from "@angular/router";
 import {AuthDto} from "../../state/auth.model";
@@ -10,7 +9,6 @@ import {NotificationService} from "../../../../core/services/notification.servic
   selector: 'app-login',
   standalone: true,
   imports: [
-    FlexLayoutModule,
     RouterLink,
     ReactiveFormsModule,
   ],
