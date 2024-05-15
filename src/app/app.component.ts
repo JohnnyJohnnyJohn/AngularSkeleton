@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NotificationsComponent} from "./standalone/notifications/notifications.component";
 import {ModalComponent} from "./standalone/modal/modal.component";
-import {HeaderComponent} from "./routes/authenticated/components/header/header.component";
+import {HeaderComponent} from "./standalone/header/header.component";
 import {DarkThemeService} from "./core/services/dark-theme.service";
 
 @Component({

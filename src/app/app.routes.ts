@@ -11,10 +11,18 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: '',
+    path: 'authenticated',
     loadChildren: () =>
       import('./routes/authenticated/authenticated.routes').then((r) => r.authenticatedRoutes),
     canActivate: [authenticatedGuard]
+  },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./routes/public/components/home/home.component').then(
+        (c) => c.HomeComponent,
+      ),
+    title: 'Accueil',
   },
   {
     path: '**',

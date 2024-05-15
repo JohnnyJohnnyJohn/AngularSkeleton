@@ -7,12 +7,12 @@ export const authenticatedRoutes: Routes = [
     component: AuthenticatedComponent,
     children: [
       {
-        path: 'home',
+        path: 'profile',
         loadComponent: () =>
-          import('./components/home/home.component').then(
-            (c) => c.HomeComponent,
+          import('./components/profile/profile.component').then(
+            (c) => c.ProfileComponent,
           ),
-        title: 'Accueil',
+        title: 'Profil',
       },
       {
         path: '**',

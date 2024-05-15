@@ -51,7 +51,7 @@ export class LoginComponent {
         errorMessage = 'Veuillez remplir tous les champs';
       }
 
-      this.notificationService.notify('Erreur de connexion', errorMessage, 'error');
+      this.notificationService.notify('Formulaire invalide', errorMessage, 'warning');
     }
   }
 }

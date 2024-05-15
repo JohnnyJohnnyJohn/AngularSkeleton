@@ -1,0 +1,21 @@
+<div class="bg-primary">
+  <div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold tracking-tight text-on-primary">Informations personelles</h1>
+  </div>
+</div>
+<div class="max-w-5xl mx-auto px-4 pb-6 sm:px-6 lg:px-8">
+    <dl class="divide-y divide-background-elevated">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-text">Nom</dt>
+        <dd class="mt-1 text-sm leading-6 text-text-light sm:col-span-2 sm:mt-0">{{ (user$ | async)?.lastname }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-text">Prénom</dt>
+        <dd class="mt-1 text-sm leading-6 text-text-light sm:col-span-2 sm:mt-0">{{ (user$ | async)?.firstname }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-text">Email</dt>
+        <dd class="mt-1 text-sm leading-6 text-text-light sm:col-span-2 sm:mt-0">{{ (user$ | async)?.email }}</dd>
+      </div>
+    </dl>
+</div>

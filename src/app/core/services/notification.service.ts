@@ -15,7 +15,7 @@ export class NotificationService {
 
   notify(title: string, message: string, type: 'success' | 'error' | 'warning' | 'info'): void {
     const notification : Notification = { title, message, type, isVisible: false };
-    this.notifications().unshift(notification);
+    this.notifications().push(notification);
 
     setTimeout(
       () => {

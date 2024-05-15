@@ -10,5 +10,5 @@ export const authGuard: CanActivateFn = (route, state) => {
     token = tokenFromStore;
   });
 
-  return token === null ? true : router.navigate(['']);
+  return token === null ? true : router.navigate(['home']);
 };

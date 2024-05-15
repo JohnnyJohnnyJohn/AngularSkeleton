@@ -3,7 +3,7 @@ import { AuthResponseDto, AuthDto, RegisterDto } from './state/auth.model';
 import { updateAuthState } from './state/auth.store';
 import { AuthService } from './state/auth.service';
 import { tap } from "rxjs/operators";
-import {catchError, EMPTY} from "rxjs";
+import { catchError, EMPTY } from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { NotificationService } from "../../core/services/notification.service";
@@ -84,6 +84,7 @@ export class AuthFacade {
 
   logout() {
     this.authService.logout();
+    this.router.navigate(['']);
     this.notificationService.notify(
       "Déconnexion réussie!",
       "À bientôt!",
