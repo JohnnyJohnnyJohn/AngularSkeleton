@@ -87,7 +87,7 @@ export class RegisterComponent {
     }
 
     return this.registerForm.controls.password
-      .hasError('minlength') ? 'Le mot de passe doit contenir au moins 6 caractères' : '';
+      .hasError('minlength') ? '6 caractères minimum pour le mot de passe' : '';
   }
 
   getConfirmPasswordErrorMessage() {

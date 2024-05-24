@@ -5,10 +5,23 @@ body {
   --gray-900: oklch(19.37% 0.006 300.98);
   --gray-700: oklch(36.98% 0.014 302.71);
   --gray-400: oklch(70.9% 0.015 304.04);
+  --gray-300: oklch(0.858 0.01 299.214);
+  --gray-100: oklch(0.957 0.004 301.424);
+
+
+  --text: var(--gray-900);
+  --text-light: var(--gray-700);
+  --background: var(--gray-400);
+
+  .darkMode {
+    --text: var(--gray-100);
+    --text-light: var(--gray-300);
+    --background: var(--gray-900);
+  }
 
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--gray-900);
+  background-color: var(--background);
 }
 
 button {

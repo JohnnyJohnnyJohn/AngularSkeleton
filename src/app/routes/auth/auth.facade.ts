@@ -32,7 +32,7 @@ export class AuthFacade {
         next: (response: AuthResponseDto) => {
           updateAuthState(response);
           this.snackBarService.openSuccessSnackBar("Connexion réussie!");
-          this.router.navigate(['']);
+          this.router.navigate(['authenticated']);
         }
       })
     );
@@ -52,7 +52,7 @@ export class AuthFacade {
         next: (response: AuthResponseDto) => {
           updateAuthState(response);
           this.snackBarService.openSuccessSnackBar("Inscription réussie!");
-          this.router.navigate(['']);
+          this.router.navigate(['authenticated']);
         }
       })
     );

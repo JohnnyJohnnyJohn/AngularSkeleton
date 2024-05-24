@@ -1,10 +1,10 @@
-main{
-  height: 100vh;
+main {
+  height: calc(100vh - 56px);
+  width: 100vw;
 }
 
 mat-card{
-  width: fit-content;
-  min-width: 450px;
+  width: min(450px, 90vw);
   height: fit-content;
   padding: 20px;
 }
@@ -18,15 +18,21 @@ mat-card-title{
 
 mat-card-actions{
   padding: 10px 0 0 0;
-}
 
-mat-card-actions button{
-  font-size: 1rem;
-  padding: 20px;
+  button{
+    font-size: 1rem;
+    padding: 20px;
+  }
 }
 
 a{
   font-weight: lighter;
   padding: 0 20px;
   margin-top: 8px;
+}
+
+@media screen and (min-width: 600px) {
+  main {
+    height: calc(100vh - 64px);
+  }
 }
