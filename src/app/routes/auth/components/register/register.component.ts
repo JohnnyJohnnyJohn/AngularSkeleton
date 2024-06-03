@@ -16,6 +16,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {IconButtonComponent} from "../../../../standalone/custom-components/buttons/icon-button/icon-button.component";
+import {InputTextComponent} from "../../../../standalone/custom-components/inputs/input-text/input-text.component";
 
 @Component({
   selector: 'app-register',
@@ -28,7 +30,9 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    IconButtonComponent,
+    InputTextComponent
   ],
   templateUrl: './register.component.html',
   styleUrl: '../auth.component.css'
@@ -37,12 +41,10 @@ export class RegisterComponent {
   registerForm = this.formBuilder.group({
     lastname: ['', [Validators.required]],
     firstname: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     confirmPassword: ['', [Validators.required, this.confirmPasswordValidator]]
   })
-
-  hidePassword = true;
 
   constructor(
     private authFacade: AuthFacade,
@@ -58,7 +60,7 @@ export class RegisterComponent {
     } else {
       let errorMessage;
 
-      if(this.registerForm.controls.email.hasError('email')) {
+      if(this.registerForm.controls.email.hasError('pattern')) {
         errorMessage = 'Veuillez entrer un email valide'
       } else if(this.registerForm.controls.password.hasError('minlength')) {
         errorMessage = 'Le mot de passe doit contenir au moins 6 caractères'
@@ -78,7 +80,7 @@ export class RegisterComponent {
     }
 
     return this.registerForm.controls.email
-      .hasError('email') ? 'Veuillez entrer un email valide' : '';
+      .hasError('pattern') ? 'Veuillez entrer un email valide' : '';
   }
 
   getPasswordErrorMessage() {

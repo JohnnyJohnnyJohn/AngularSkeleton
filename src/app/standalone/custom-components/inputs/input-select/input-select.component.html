@@ -1,0 +1,33 @@
+<mat-form-field
+  [appearance]="appearance"
+  [floatLabel]="floatLabel"
+  [hintLabel]="hintLabel"
+  [hideRequiredMarker]="hideRequiredMarker"
+  [color]="color"
+  fxFlexFill
+>
+  <mat-label>{{ label }}</mat-label>
+  @if (isMultiple) {
+    <mat-select [formControl]="formControl" [required]="required" multiple>
+      @for (option of options; track option.value) {
+        <mat-option [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      }
+    </mat-select>
+  } @else {
+    <mat-select [formControl]="formControl" [required]="required">
+      <mat-option (select)="formControl.reset()">-----</mat-option>
+      @for (option of options; track option.value) {
+        <mat-option [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      }
+    </mat-select>
+  }
+
+  @if (formControl.invalid && formControl.touched) {
+    <mat-error>{{ getErrorMessage() }}</mat-error>
+  }
+
+</mat-form-field>

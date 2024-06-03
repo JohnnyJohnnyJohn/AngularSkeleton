@@ -5,45 +5,35 @@
       <mat-card-title>Connexion</mat-card-title>
     </mat-card-header>
     <form [formGroup]="loginForm" (submit)="onSubmit()">
-
       <mat-card-content fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-        <mat-form-field appearance="outline" fxFlexFill>
-          <mat-label>Email</mat-label>
-          <input matInput
-                 type="text"
-                 formControlName="email"
-                 autocomplete="username"
-                 required>
-          @if (loginForm.controls.email.invalid) {
-            <mat-error>{{ getEmailErrorMessage() }}</mat-error>
-          }
-        </mat-form-field>
-        <mat-form-field appearance="outline" fxFlexFill>
-          <mat-label>Mot de passe</mat-label>
-          <input matInput
-                 type="{{hidePassword ? 'password' : 'text'}}"
-                 formControlName="password"
-                 autocomplete="current-password"
-                 required>
-          <button mat-icon-button
-                  type="button"
-                  matSuffix
-                  color="accent"
-                  (click)="hidePassword = !hidePassword"
-                  [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hidePassword">
-            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-          </button>
-          @if (loginForm.controls.password.invalid) {
-            <mat-error>Veuillez entrer votre mot de passe</mat-error>
-          }
-        </mat-form-field>
+        <app-input-text label="Email"
+                        [required]="true"
+                        type="email"
+                        autocomplete="username"
+                        appearance="outline"
+                        formControlName="email"
+                        color="primary"
+                        [formControl]="loginForm.controls.email"
+                        [errorMessage]="getEmailErrorMessage()"
+                        fxFlexFill
+        ></app-input-text>
+        <app-input-text label="Mot de passe"
+                        [required]="true"
+                        type="password"
+                        autocomplete="current-password"
+                        appearance="outline"
+                        formControlName="password"
+                        color="primary"
+                        [formControl]="loginForm.controls.password"
+                        [actionHide]="true"
+                        errorMessage="Veuillez entrer votre mot de passe"
+                        fxFlexFill
+        ></app-input-text>
       </mat-card-content>
       <mat-card-actions fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-        <button mat-fab extended type="submit">
-          <mat-icon>login</mat-icon>
-          SE CONNECTER
-        </button>
+        <app-icon-button buttonType="extended-fab" color="primary" icon="login" type="submit">
+          Se connecter
+        </app-icon-button>
         <a mat-button routerLink="/auth/register">Vous n'avez pas de compte ? Inscrivez-vous</a>
       </mat-card-actions>
     </form>

@@ -4,6 +4,14 @@ import {authenticatedGuard} from "./routes/authenticated/guard/authenticated.gua
 
 export const routes: Routes = [
   {
+    path: 'demo',
+    loadComponent: () =>
+      import('./routes/demo/demo/demo.component').then(
+        (c) => c.DemoComponent,
+      ),
+    title: 'Démo',
+  },
+  {
     path: 'auth',
     loadChildren: () =>
       import('./routes/auth/auth.routes').then((r) => r.authRoutes),
@@ -17,6 +25,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'auth',
+    redirectTo: 'demo',
   },
 ];

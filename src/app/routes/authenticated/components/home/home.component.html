@@ -4,7 +4,7 @@
       <img src="assets/angular-icon.svg" alt="Logo Angular">
       <h1>Squelette Angular</h1>
     </mat-card-header>
-    <mat-divider [inset]="true"></mat-divider>
+    <mat-divider></mat-divider>
     <mat-card-content>
       <p>Ce projet est un squelette Angular prêt à l'emploi, conçu pour accélérer le développement de nouvelles applications Angular. Il intègre des pratiques modernes de développement, des configurations optimisées et des outils essentiels pré-configurés.</p>
       <h3>Caractéristiques Principales</h3>
@@ -43,9 +43,9 @@ cd AngularSkeleton</pre>
       <h3>Structure du Projet</h3>
       <p>La structure du projet est organisée comme suit :</p>
       <ul>
-        <li><code>src/app/core/</code>: Contient les services de base, intercepteurs et façades.</li>
-        <li><code>src/app/routes/</code>: Contient les composants pour les différentes pages de l'application.</li>
-        <li><code>src/app/shared/</code>: Composants, directives et modules réutilisables.</li>
+        <li><code>src/app/core/</code>: Contient les services de base.</li>
+        <li><code>src/app/routes/</code>: Contient les composants, services et façades pour les différentes pages de l'application.</li>
+        <li><code>src/app/standalone/</code>: Composants, directives et modules réutilisables.</li>
         <li><code>src/environments/</code>: Configuration des environnements de développement et production.</li>
       </ul>
 
@@ -55,22 +55,5 @@ cd AngularSkeleton</pre>
       <h3>Remerciements</h3>
       <p>Nous espérons que ce squelette vous aidera à démarrer efficacement vos projets Angular !</p>
     </mat-card-content>
-    <mat-divider [inset]="true"></mat-divider>
-    <mat-card-actions align="end">
-      @if (token$ | async) {
-        <button mat-fab extended color="primary" (click)="logout()">
-          <mat-icon>logout</mat-icon>
-          SE DÉCONNECTER
-        </button>
-      } @else {
-        <button mat-fab extended routerLink="{{ routeToLogin }}">
-          <mat-icon>login</mat-icon>
-          SE CONNECTER
-        </button>
-      }
-    </mat-card-actions>
   </mat-card>
-
-
-
 </main>

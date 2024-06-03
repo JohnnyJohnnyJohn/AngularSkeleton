@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {NonNullableFormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormControl, NonNullableFormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {RouterLink} from "@angular/router";
 import {AuthDto} from "../../state/auth.model";
 import {AuthFacade} from "../../auth.facade";
@@ -10,6 +10,12 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInput, MatInputModule} from "@angular/material/input";
+import {ButtonComponent} from "../../../../standalone/custom-components/buttons/button/button.component";
+import {IconButtonComponent} from "../../../../standalone/custom-components/buttons/icon-button/icon-button.component";
+import {InputTextComponent} from "../../../../standalone/custom-components/inputs/input-text/input-text.component";
+import {
+  InputSelectComponent
+} from "../../../../standalone/custom-components/inputs/input-select/input-select.component";
 
 
 
@@ -24,7 +30,11 @@ import {MatInput, MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    ButtonComponent,
+    IconButtonComponent,
+    InputTextComponent,
+    InputSelectComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: '../auth.component.css'
@@ -34,8 +44,6 @@ export class LoginComponent {
     email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     password: ['', Validators.required],
   });
-
-  hidePassword = true;
 
   constructor(
     private authFacade: AuthFacade,

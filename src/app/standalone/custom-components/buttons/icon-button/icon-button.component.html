@@ -1,0 +1,23 @@
+@switch (buttonType) {
+  @case ('fab'){
+    <button mat-fab [color]="color" [disabled]="disabled">
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
+  }
+  @case ('mini-fab'){
+    <button mat-mini-fab [color]="color" [disabled]="disabled">
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
+  }
+  @case ('extended-fab') {
+    <button mat-fab extended [color]="color" [disabled]="disabled">
+      <mat-icon>{{ icon }}</mat-icon>
+      <ng-content></ng-content>
+    </button>
+  }
+  @default {
+    <button mat-icon-button [color]="color" [disabled]="disabled">
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
+  }
+}

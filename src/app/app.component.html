@@ -1,4 +1,15 @@
-<div class="darkMode">
-  <app-header></app-header>
-  <router-outlet></router-outlet>
-</div>
+<app-header [drawer]="drawer"></app-header>
+<mat-drawer-container hasBackdrop="true">
+  <mat-drawer #drawer mode="over">
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+@if (loadingService.isLoading()) {
+  <div id="spinner">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+}
+

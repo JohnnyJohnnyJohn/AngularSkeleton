@@ -54,7 +54,7 @@ La structure du projet est organisée comme suit :
 
 - `src/app/core/`: Contient les services de base, intercepteurs et façades.
 - `src/app/routes/`: Contient les composants pour les différentes pages de l'application.
-- `src/app/shared/`: Composants, directives et modules réutilisables.
+- `src/app/standalone/`: Composants, directives et modules réutilisables.
 - `src/environments/`: Configuration des environnements de développement et production.
 
 ## Contribuer

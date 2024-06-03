@@ -1,0 +1,31 @@
+mat-drawer {
+  border-radius: 0;
+  width: 300px;
+}
+
+mat-drawer-content {
+  background-color: var(--mat-divider-color);
+  min-height: calc(100vh - 56px);
+}
+
+mat-drawer-container {
+  min-height: calc(100vh - 56px);
+}
+
+#spinner {
+  backdrop-filter: blur(2px);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+@media screen and (min-width: 600px) {
+  mat-drawer-container, mat-drawer-content {
+    min-height: calc(100vh - 64px);
+  }
+}

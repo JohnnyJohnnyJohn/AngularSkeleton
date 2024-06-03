@@ -1,0 +1,63 @@
+<mat-form-field [appearance]="appearance"
+                [floatLabel]="floatLabel"
+                [hintLabel]="hintLabel"
+                [hideRequiredMarker]="hideRequiredMarker"
+                [color]="color"
+                fxFlexFill
+>
+  @if (label) {
+    <mat-label>{{ label }}</mat-label>
+  }
+  <input matInput
+         [type]="type"
+         [formControl]="formControl()"
+         [autocomplete]="autocomplete"
+         [placeholder]="placeholder"
+         [required]="required"
+  >
+
+  @if (actionHide) {
+    <button mat-icon-button
+            type="button"
+            matSuffix
+            [color]="color"
+            (click)="hidePassword.set(!hidePassword())"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword()"
+    >
+      <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  }
+
+  @if (actionClear) {
+    <button mat-icon-button
+            type="button"
+            matSuffix
+            [color]="color"
+            (click)="formControl().reset"
+            [attr.aria-label]="'Clear'"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+  }
+
+  @if (iconPrefix) {
+    <mat-icon [color]="color" matIconPrefix>{{ iconPrefix }}</mat-icon>
+  }
+
+  @if (iconSuffix) {
+    <mat-icon [color]="color" matIconSuffix>{{ iconSuffix }}</mat-icon>
+  }
+
+  @if (txtPrefix) {
+    <span matTextPrefix>{{ txtPrefix }}</span>
+  }
+
+  @if (txtSuffix) {
+    <span matTextSuffix>{{ txtSuffix }}</span>
+  }
+
+  @if (formControl().invalid && formControl().touched) {
+    <mat-error>{{ errorMessage() }}</mat-error>
+  }
+</mat-form-field>

@@ -1,0 +1,93 @@
+<section fxLayout="column" fxLayoutGap="10px">
+  <h1>Démonstration des Composants</h1>
+
+  <h2>App Button</h2>
+  <article>
+    <p>Les boutons sont des éléments interactifs qui permettent aux utilisateurs d'effectuer des actions.</p>
+    <p>Il existe plusieurs types de boutons :</p>
+    <ul>
+      <li>Basic : bouton de base</li>
+      <li>Raised : bouton en relief</li>
+      <li>Stroked : bouton avec bordure</li>
+      <li>Flat : bouton plat</li>
+    </ul>
+    <p>Il est possible de désactiver un bouton en ajoutant l'attribut disabled.</p>
+  </article>
+  <div fxLayout fxLayoutGap="10px">
+    <app-button buttonType="basic">Basic Button</app-button>
+    <app-button buttonType="raised" color="accent">Raised Button</app-button>
+    <app-button buttonType="stroked" color="warn">Stroked Button</app-button>
+    <app-button buttonType="flat" [disabled]="true">Flat Disabled Button</app-button>
+  </div>
+
+  <h2>App Icon Button</h2>
+  <article>
+    <p>Les boutons icones sont des éléments interactifs qui permettent aux utilisateurs d'effectuer des actions.</p>
+    <p>Il existe plusieurs types de boutons icones :</p>
+    <ul>
+      <li>Icon : bouton icone</li>
+      <li>Fab : bouton icone flottant</li>
+      <li>Mini Fab : bouton icone flottant mini</li>
+      <li>Extended Fab : bouton icone flottant étendu</li>
+    </ul>
+    <p>Il est possible de changer la couleur d'un bouton icone en ajoutant l'attribut color.</p>
+  </article>
+  <div fxLayout fxLayoutGap="10px" fxLayoutAlign="start center">
+    <app-icon-button buttonType="icon" icon="home"></app-icon-button>
+    <app-icon-button buttonType="fab" icon="add" color="accent"></app-icon-button>
+    <app-icon-button buttonType="mini-fab" icon="edit" color="warn"></app-icon-button>
+    <app-icon-button buttonType="extended-fab" icon="done" color="primary">Extended Fab</app-icon-button>
+  </div>
+
+  <h2>App Input Text</h2>
+  <article>
+    <p>Les champs de texte permettent aux utilisateurs d'entrer des données.</p>
+    <p>Il existe plusieurs types de champs de texte :</p>
+    <ul>
+      <li>Outline : champ de texte avec bordure</li>
+      <li>Filled : champ de texte rempli</li>
+    </ul>
+    <p>Il est possible de rendre un champ de texte obligatoire en ajoutant l'attribut required.</p>
+    <p>Il est possible de changer la couleur d'un champ de texte en ajoutant l'attribut color.</p>
+    <p>Il est possible de changer l'apparence d'un champ de texte en ajoutant l'attribut appearance.</p>
+    <p>Il est possible de changer le placeholder d'un champ de texte en ajoutant l'attribut placeholder.</p>
+    <p>Il est possible de changer l'autocomplétion d'un champ de texte en ajoutant l'attribut autocomplete.</p>
+    <p>Il est possible de changer le message d'erreur d'un champ de texte en ajoutant l'attribut errorMessage.</p>
+  </article>
+  <div class="form" fxLayout="column" fxLayoutGap="10px">
+    <app-input-text label="Nom"
+                    hintLabel="Entrez votre nom"
+                    [required]="true"
+                    placeholder="Nom"
+                    autocomplete="name"
+                    appearance="outline"
+                    [formControl]="demoForm.controls.lastname">
+    </app-input-text>
+    <app-input-text label="Prénom"
+                    hintLabel="Entrez votre prénom"
+                    [required]="true"
+                    placeholder="Prénom"
+                    autocomplete="given-name"
+                    appearance="fill"
+                    [formControl]="demoForm.controls.firstname">
+    </app-input-text>
+    <app-input-text label="Mot de passe"
+                    hintLabel="Entrez votre mot de passe"
+                    [required]="true"
+                    placeholder="Mot de passe"
+                    autocomplete="new-password"
+                    appearance="outline"
+                    [formControl]="demoForm.controls.password">
+    </app-input-text>
+    <app-input-text label="Email"
+                    hintLabel="Entrez votre email"
+                    [required]="true"
+                    placeholder="Email"
+                    autocomplete="email"
+                    appearance="outline"
+                    [formControl]="demoForm.controls.email"
+                    [errorMessage]="getEmailErrorMessage()">
+    </app-input-text>
+  </div>
+</section>
+

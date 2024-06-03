@@ -26,11 +26,5 @@ import {MatButtonModule} from "@angular/material/button";
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  private authFacade = inject(AuthFacade);
   protected token$ = token$;
-  protected routeToLogin = "/auth/login";
-
-  logout() {
-    this.authFacade.logout();
-  }
 }

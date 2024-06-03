@@ -61,5 +61,6 @@ export class AuthFacade {
   logout() {
     this.authService.logout();
     this.snackBarService.openSuccessSnackBar("Déconnexion réussie!");
+    this.router.navigate(['']);
   }
 }

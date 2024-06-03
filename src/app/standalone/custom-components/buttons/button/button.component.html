@@ -1,0 +1,13 @@
+<button mat-button
+        [class.mat-mdc-button]="buttonType === 'basic'"
+        [class.mat-mdc-unelevated-button]="buttonType === 'flat'"
+        [class.mat-mdc-outlined-button]="buttonType === 'stroked'"
+        [class.mat-mdc-raised-button]="buttonType === 'raised'"
+        [color]="color"
+        [disabled]="disabled"
+>
+  @if (icon) {
+    <mat-icon>{{ icon }}</mat-icon>
+  }
+  <ng-content></ng-content>
+</button>

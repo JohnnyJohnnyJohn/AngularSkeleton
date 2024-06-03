@@ -1,73 +1,68 @@
 <main fxLayout fxFlex="1 1 auto" fxLayoutAlign="center center">
-
   <mat-card class="mat-elevation-z6">
     <mat-card-header fxLayoutAlign="center">
       <mat-card-title>Inscription</mat-card-title>
     </mat-card-header>
     <form [formGroup]="registerForm" (submit)="onSubmit()">
       <mat-card-content fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-        <mat-form-field appearance="outline" fxFlexFill>
-          <mat-label>Prénom</mat-label>
-          <input matInput formControlName="firstname" required>
-          @if (registerForm.controls.firstname.invalid) {
-            <mat-error>Veuillez entrer votre prénom</mat-error>
-          }
-        </mat-form-field>
-        <mat-form-field appearance="outline" fxFlexFill>
-          <mat-label>Nom</mat-label>
-          <input matInput formControlName="lastname" required>
-          @if (registerForm.controls.lastname.invalid) {
-            <mat-error>Veuillez entrer votre nom</mat-error>
-          }
-        </mat-form-field>
-        <mat-form-field appearance="outline" fxFlexFill>
-          <mat-label>Email</mat-label>
-          <input matInput
-                 type="text"
-                 formControlName="email"
-                 autocomplete="username"
-                 required>
-          @if (registerForm.controls.email.invalid) {
-            <mat-error>{{getEmailErrorMessage()}}</mat-error>
-          }
-        </mat-form-field>
-        <mat-form-field appearance="outline" fxFlexFill>
-          <mat-label>Mot de passe</mat-label>
-          <input matInput
-                 type="{{hidePassword ? 'password' : 'text'}}"
-                 formControlName="password"
-                 autocomplete="new-password"
-                 required>
-          <button mat-icon-button type="button" matSuffix color="accent" (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-          @if (registerForm.controls.password.invalid) {
-            <mat-error>{{getPasswordErrorMessage()}}</mat-error>
-          }
-        </mat-form-field>
-        <mat-form-field appearance="outline" fxFlexFill>
-          <mat-label>Confirmer mot de passe</mat-label>
-          <input matInput
-                 type="{{hidePassword ? 'password' : 'text'}}"
-                 formControlName="confirmPassword"
-                 autocomplete="new-password"
-                 required>
-          <button mat-icon-button type="button" matSuffix color="accent" (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-          @if (registerForm.controls.confirmPassword.invalid || this.registerForm.hasError('PasswordNoMatch')) {
-            <mat-error>{{getConfirmPasswordErrorMessage()}}</mat-error>
-          }
-          @if (this.registerForm.hasError('PasswordNoMatch')) {
-            <mat-hint>Les mots de passes ne sont pas identiques</mat-hint>
-          }
-        </mat-form-field>
+        <app-input-text label="Prénom"
+                  [required]="true"
+                  autocomplete="given-name"
+                  appearance="outline"
+                  formControlName="firstname"
+                  color="primary"
+                  [formControl]="registerForm.controls.firstname"
+                  errorMessage="Veuillez entrer votre prénom"
+                  fxFlexFill>
+        </app-input-text>
+        <app-input-text label="Nom"
+                  [required]="true"
+                  autocomplete="family-name"
+                  appearance="outline"
+                  formControlName="lastname"
+                  color="primary"
+                  [formControl]="registerForm.controls.lastname"
+                  errorMessage="Veuillez entrer votre nom"
+                  fxFlexFill>
+        </app-input-text>
+        <app-input-text label="Email"
+                  [required]="true"
+                  autocomplete="username"
+                  appearance="outline"
+                  formControlName="email"
+                  color="primary"
+                  [formControl]="registerForm.controls.email"
+                  [errorMessage]="getEmailErrorMessage()"
+                  fxFlexFill>
+        </app-input-text>
+        <app-input-text label="Mot de passe"
+                  [required]="true"
+                  autocomplete="new-password"
+                  appearance="outline"
+                  formControlName="password"
+                  color="primary"
+                  [actionHide]="true"
+                  [formControl]="registerForm.controls.password"
+                  [errorMessage]="getPasswordErrorMessage()"
+                  (input)="registerForm.controls.confirmPassword.updateValueAndValidity()"
+                  fxFlexFill>
+        </app-input-text>
+        <app-input-text label="Confirmer mot de passe"
+                  [required]="true"
+                  autocomplete="new-password"
+                  appearance="outline"
+                  formControlName="confirmPassword"
+                  color="primary"
+                  [actionHide]="true"
+                  [formControl]="registerForm.controls.confirmPassword"
+                  [errorMessage]="getConfirmPasswordErrorMessage()"
+                  fxFlexFill>
+        </app-input-text>
       </mat-card-content>
       <mat-card-actions fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-        <button mat-fab extended type="submit">
-          <mat-icon>person_add</mat-icon>
-          S'INSCRIRE
-        </button>
+        <app-icon-button buttonType="extended-fab" color="primary" icon="person_add" type="submit">
+          Créer un compte
+        </app-icon-button>
         <a mat-button routerLink="/auth/login">Déjà inscrit ? Connectez-vous</a>
       </mat-card-actions>
     </form>
