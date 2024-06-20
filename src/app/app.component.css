@@ -1,6 +1,17 @@
+app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
 mat-drawer {
+  position: fixed;
+  margin-top: 56px;
+  top: 0;
   border-radius: 0;
   width: 300px;
+  min-height: calc(100vh - 56px);
 }
 
 mat-drawer-content {
@@ -9,6 +20,8 @@ mat-drawer-content {
 }
 
 mat-drawer-container {
+  position: sticky;
+  top: 0;
   min-height: calc(100vh - 56px);
 }
 
@@ -25,7 +38,11 @@ mat-drawer-container {
 }
 
 @media screen and (min-width: 600px) {
-  mat-drawer-container, mat-drawer-content {
+  mat-drawer-container, mat-drawer-content, mat-drawer {
     min-height: calc(100vh - 64px);
+  }
+
+  mat-drawer {
+    margin-top: 64px;
   }
 }

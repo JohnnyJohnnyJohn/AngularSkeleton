@@ -47,45 +47,45 @@
       <li>Outline : champ de texte avec bordure</li>
       <li>Filled : champ de texte rempli</li>
     </ul>
-    <p>Il est possible de rendre un champ de texte obligatoire en ajoutant l'attribut required.</p>
-    <p>Il est possible de changer la couleur d'un champ de texte en ajoutant l'attribut color.</p>
-    <p>Il est possible de changer l'apparence d'un champ de texte en ajoutant l'attribut appearance.</p>
-    <p>Il est possible de changer le placeholder d'un champ de texte en ajoutant l'attribut placeholder.</p>
-    <p>Il est possible de changer l'autocomplétion d'un champ de texte en ajoutant l'attribut autocomplete.</p>
+    <p>Il est possible de rendre un champ de texte obligatoire en ajoutant l'attribut isRequired.</p>
+    <p>Il est possible de changer la couleur d'un champ de texte en ajoutant l'attribut colorValue.</p>
+    <p>Il est possible de changer l'apparence d'un champ de texte en ajoutant l'attribut appearanceValue.</p>
+    <p>Il est possible de changer le placeholder d'un champ de texte en ajoutant l'attribut placeholderValue.</p>
+    <p>Il est possible de changer l'autocomplétion d'un champ de texte en ajoutant l'attribut autocompleteValue.</p>
     <p>Il est possible de changer le message d'erreur d'un champ de texte en ajoutant l'attribut errorMessage.</p>
   </article>
   <div class="form" fxLayout="column" fxLayoutGap="10px">
-    <app-input-text label="Nom"
-                    hintLabel="Entrez votre nom"
-                    [required]="true"
-                    placeholder="Nom"
-                    autocomplete="name"
-                    appearance="outline"
-                    [formControl]="demoForm.controls.lastname">
+    <app-input-text labelValue="Nom"
+                    hintLabelValue="Entrez votre nom"
+                    [isRequired]="true"
+                    placeholderValue="Nom"
+                    autocompleteValue="name"
+                    appearanceValue="outline"
+                    [inputFormControl]="demoForm.controls.lastname">
     </app-input-text>
-    <app-input-text label="Prénom"
-                    hintLabel="Entrez votre prénom"
-                    [required]="true"
-                    placeholder="Prénom"
-                    autocomplete="given-name"
-                    appearance="fill"
-                    [formControl]="demoForm.controls.firstname">
+    <app-input-text labelValue="Prénom"
+                    hintLabelValue="Entrez votre prénom"
+                    [isRequired]="true"
+                    placeholderValue="Prénom"
+                    autocompleteValue="given-name"
+                    appearanceValue="fill"
+                    [inputFormControl]="demoForm.controls.firstname">
     </app-input-text>
-    <app-input-text label="Mot de passe"
-                    hintLabel="Entrez votre mot de passe"
-                    [required]="true"
-                    placeholder="Mot de passe"
-                    autocomplete="new-password"
-                    appearance="outline"
-                    [formControl]="demoForm.controls.password">
+    <app-input-text labelValue="Mot de passe"
+                    hintLabelValue="Entrez votre mot de passe"
+                    [isRequired]="true"
+                    placeholderValue="Mot de passe"
+                    autocompleteValue="new-password"
+                    appearanceValue="outline"
+                    [inputFormControl]="demoForm.controls.password">
     </app-input-text>
-    <app-input-text label="Email"
-                    hintLabel="Entrez votre email"
-                    [required]="true"
-                    placeholder="Email"
-                    autocomplete="email"
-                    appearance="outline"
-                    [formControl]="demoForm.controls.email"
+    <app-input-text labelValue="Email"
+                    hintLabelValue="Entrez votre email"
+                    [isRequired]="true"
+                    placeholderValue="Email"
+                    autocompleteValue="email"
+                    appearanceValue="outline"
+                    [inputFormControl]="demoForm.controls.email"
                     [errorMessage]="getEmailErrorMessage()">
     </app-input-text>
   </div>

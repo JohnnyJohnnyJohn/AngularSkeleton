@@ -33,31 +33,31 @@ import {MatInput} from "@angular/material/input";
   ]
 })
 export class InputTextComponent implements ControlValueAccessor{
-  @Input() label: string | undefined;
-  @Input() placeholder: string = '';
-  @Input() type: string = 'text';
-  @Input() autocomplete: string = "off";
-  @Input() hintLabel: string = '';
-  @Input() appearance: 'fill' | 'outline' = 'fill';
-  @Input() color: 'primary' | 'accent' | 'warn' | undefined;
-  @Input() floatLabel: FloatLabelType = 'auto';
-  @Input() required = false;
-  @Input() hideRequiredMarker: BooleanInput = false;
-  @Input() iconSuffix: string | undefined;
-  @Input() iconPrefix: string | undefined;
-  @Input() txtSuffix: string | undefined;
-  @Input() txtPrefix: string | undefined;
-  @Input() actionHide: boolean = false;
-  @Input() actionClear: boolean = false;
-  formControl = input.required<FormControl>();
+  @Input() labelValue: string | undefined;
+  @Input() placeholderValue: string = '';
+  @Input() typeValue: string = 'text';
+  @Input() autocompleteValue: string = "off";
+  @Input() hintLabelValue: string = '';
+  @Input() appearanceValue: 'fill' | 'outline' = 'fill';
+  @Input() colorValue: 'primary' | 'accent' | 'warn' | undefined;
+  @Input() floatLabelTypeValue: FloatLabelType = 'auto';
+  @Input() isRequired = false;
+  @Input() hideRequiredMarkerValue: BooleanInput = false;
+  @Input() iconSuffixValue: string | undefined;
+  @Input() iconPrefixValue: string | undefined;
+  @Input() txtSuffixValue: string | undefined;
+  @Input() txtPrefixValue: string | undefined;
+  @Input() hasActionHide: boolean = false;
+  @Input() hasActionClear: boolean = false;
+  inputFormControl = input.required<FormControl>();
   errorMessage = input<string>();
 
   hidePassword = signal(true);
 
   constructor() {
     effect(() => {
-      if(this.actionHide) {
-        this.type = this.hidePassword() ? 'password' : 'text';
+      if(this.hasActionHide) {
+        this.typeValue = this.hidePassword() ? 'password' : 'text';
       }
     });
   }

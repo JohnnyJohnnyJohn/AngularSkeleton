@@ -17,7 +17,15 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
+
+    .active &{
+      color: var(--mat-app-background-color) !important;
+    }
   }
+}
+
+.sidenav-link.active{
+  background-color: var(--mat-app-text-color) !important;
 }
 
 app-button {

@@ -1,26 +1,26 @@
-<mat-form-field [appearance]="appearance"
-                [floatLabel]="floatLabel"
-                [hintLabel]="hintLabel"
-                [hideRequiredMarker]="hideRequiredMarker"
-                [color]="color"
+<mat-form-field [appearance]="appearanceValue"
+                [floatLabel]="floatLabelTypeValue"
+                [hintLabel]="hintLabelValue"
+                [hideRequiredMarker]="hideRequiredMarkerValue"
+                [color]="colorValue"
                 fxFlexFill
 >
-  @if (label) {
-    <mat-label>{{ label }}</mat-label>
+  @if (labelValue) {
+    <mat-label>{{ labelValue }}</mat-label>
   }
   <input matInput
-         [type]="type"
-         [formControl]="formControl()"
-         [autocomplete]="autocomplete"
-         [placeholder]="placeholder"
-         [required]="required"
+         [type]="typeValue"
+         [formControl]="inputFormControl()"
+         [autocomplete]="autocompleteValue"
+         [placeholder]="placeholderValue"
+         [required]="isRequired"
   >
 
-  @if (actionHide) {
+  @if (hasActionHide) {
     <button mat-icon-button
             type="button"
             matSuffix
-            [color]="color"
+            [color]="colorValue"
             (click)="hidePassword.set(!hidePassword())"
             [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hidePassword()"
@@ -29,35 +29,35 @@
     </button>
   }
 
-  @if (actionClear) {
+  @if (hasActionClear) {
     <button mat-icon-button
             type="button"
             matSuffix
-            [color]="color"
-            (click)="formControl().reset"
+            [color]="colorValue"
+            (click)="inputFormControl().reset"
             [attr.aria-label]="'Clear'"
     >
       <mat-icon>clear</mat-icon>
     </button>
   }
 
-  @if (iconPrefix) {
-    <mat-icon [color]="color" matIconPrefix>{{ iconPrefix }}</mat-icon>
+  @if (iconPrefixValue) {
+    <mat-icon [color]="colorValue" matIconPrefix>{{ iconPrefixValue }}</mat-icon>
   }
 
-  @if (iconSuffix) {
-    <mat-icon [color]="color" matIconSuffix>{{ iconSuffix }}</mat-icon>
+  @if (iconSuffixValue) {
+    <mat-icon [color]="colorValue" matIconSuffix>{{ iconSuffixValue }}</mat-icon>
   }
 
-  @if (txtPrefix) {
-    <span matTextPrefix>{{ txtPrefix }}</span>
+  @if (txtPrefixValue) {
+    <span matTextPrefix>{{ txtPrefixValue }}</span>
   }
 
-  @if (txtSuffix) {
-    <span matTextSuffix>{{ txtSuffix }}</span>
+  @if (txtSuffixValue) {
+    <span matTextSuffix>{{ txtSuffixValue }}</span>
   }
 
-  @if (formControl().invalid && formControl().touched) {
+  @if (inputFormControl().invalid && inputFormControl().touched) {
     <mat-error>{{ errorMessage() }}</mat-error>
   }
 </mat-form-field>

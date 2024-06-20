@@ -6,26 +6,26 @@
     </mat-card-header>
     <form [formGroup]="loginForm" (submit)="onSubmit()">
       <mat-card-content fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-        <app-input-text label="Email"
-                        [required]="true"
-                        type="email"
-                        autocomplete="username"
-                        appearance="outline"
+        <app-input-text labelValue="Email"
+                        [isRequired]="true"
+                        typeValue="email"
+                        autocompleteValue="username"
+                        appearanceValue="outline"
                         formControlName="email"
-                        color="primary"
-                        [formControl]="loginForm.controls.email"
+                        colorValue="primary"
+                        [inputFormControl]="loginForm.controls.email"
                         [errorMessage]="getEmailErrorMessage()"
                         fxFlexFill
         ></app-input-text>
-        <app-input-text label="Mot de passe"
-                        [required]="true"
-                        type="password"
-                        autocomplete="current-password"
-                        appearance="outline"
+        <app-input-text labelValue="Mot de passe"
+                        [isRequired]="true"
+                        typeValue="password"
+                        autocompleteValue="current-password"
+                        appearanceValue="outline"
                         formControlName="password"
-                        color="primary"
-                        [formControl]="loginForm.controls.password"
-                        [actionHide]="true"
+                        colorValue="primary"
+                        [inputFormControl]="loginForm.controls.password"
+                        [hasActionHide]="true"
                         errorMessage="Veuillez entrer votre mot de passe"
                         fxFlexFill
         ></app-input-text>
